@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { View } from 'react-native';
+import { Text } from 'react-native';
 
-const Button: React.FC = ({ text, onPress, style }) => {
+interface ButtonProps {
+  text: string;
+}
+
+const Button: React.FC<ButtonProps> = ({ text, onPress, style }) => {
   return (
-    <Container onPress={onPress} style={style}><Text>{text}</Text></Container>
+    <Container onPress={onPress} style={style}><Text style={{ color: 'white' }}>{text}</Text></Container>
   );
 }
 
@@ -16,10 +20,4 @@ const Container = styled.TouchableOpacity`
   margin-bottom: 0px;
   align-items: center;
   height: 40px;
-`;
-
-const Text = styled.Text`
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
 `;
